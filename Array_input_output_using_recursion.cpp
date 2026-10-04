@@ -1,43 +1,45 @@
 #include <iostream>
 
 // input_function
-void input(int *arr,int size) {
+void input(int *arr,int index) {
 
     //base_condition
-     if (size == 0) {
+     if (index == 0) {
          std::cout<<"Enter value: ";
-         std::cin>>arr[size];
+         std::cin>>arr[index];
          return;
      }
 
     // again_calling_function
-    input(arr,size-1);
+    input(arr,index-1);
 
     // after_callback_function_return_input,_output
     std::cout<<"Enter value: ";
-    std::cin>>arr[size];
+    std::cin>>arr[index];
 }
 
 // output_function
-void output(int *arr,int size) {
+void output(int *arr,int index) {
 
     // base_condition
-    if (size == 0) {
-        std::cout<<arr[size]<<" ";
+    if (index == 0) {
+        std::cout<<arr[index]<<" ";
         return;
     }
-    // function_calling_itself
-    output(arr,size-1);
 
     // after_callback_output_the_value
-    std::cout<<arr[size]<<" ";
+    std::cout<<arr[index]<<" ";
+    // function_calling_itself
+    output(arr,index-1);
+
+
 }
 int main() {
     int size = 5;
     int arr[size];
 
-    input(arr,size);
+    input(arr,size-1);
 
-    output(arr,size);
+    output(arr,size-1);
 }
 
