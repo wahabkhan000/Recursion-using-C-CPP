@@ -4,10 +4,9 @@ void recursive_function(int number) {
     if (number == 0) {
         return;
     }
-    int rem = number%2;
-    number/=2;
-    recursive_function(number);
-    printf("%d",rem);
+    
+    recursive_function(number/2);
+    printf("%d",number%2);
 }
 
 int main() {
